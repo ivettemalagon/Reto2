@@ -1,0 +1,39 @@
+#Entradas
+Items_Cart = int(input())
+Cart = 0
+Total_Purchase = int(0)
+Bill = "NIT: 899.999.063" + "\n"
+
+while (Cart < Items_Cart):
+  Product_Name = input()
+  Product_Price = int(input())
+  Bill = Bill + Product_Name + " $" + str(Product_Price) + "\n"
+  Total_Purchase += Product_Price
+  Cart += 1
+
+#Operaciones
+def Real_Discount(Total_Purchase):
+  if (Total_Purchase >= 150000) and (Total_Purchase <= 300000):
+    Real_Disc = Total_Purchase * 0.1
+  elif (Total_Purchase > 300000) and (Total_Purchase <= 700000):
+    Real_Disc =  Total_Purchase * 0.15
+  elif Total_Purchase > 700000:
+    Real_Disc =  Total_Purchase * 0.2
+  else:
+    Real_Disc = 0
+  return Real_Disc
+
+
+Final_Price = Total_Purchase - Real_Discount(Total_Purchase)
+import math
+Total = math.ceil(Final_Price)
+
+#Salidas
+print("Centro Comercial Unaleño")
+print("Compra más y Gasta Menos")
+print(Bill + "Total: $" + str(Total))
+print("En esta compra tu descuento fue $" + str(int(Real_Discount(Total_Purchase))))
+print("Gracias por tu compra")
+
+
+
